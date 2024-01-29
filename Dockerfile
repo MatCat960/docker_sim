@@ -35,8 +35,8 @@ RUN cd /usr/include ; ln -sf eigen3/Eigen Eigen
 RUN apt update && apt install -y ros-noetic-tf2*
 
 # Install osqp
-RUN git clone https://github.com/osqp/osqp
-RUN cd osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && cmake --build . --target install
+COPY osqp $HOME/osqp
+RUN cd $HOME/osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && cmake --build . --target install
 
 
 # Install osqp-eigen
