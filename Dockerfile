@@ -69,8 +69,8 @@ COPY packages/torch_pf src/torch_pf
 
 # Build the workspace
 RUN apt-get update \
-  && rosdep update \
-  && rosdep install --from-paths src -iy \
+  # && rosdep update \
+  # && rosdep install --from-paths src -iy \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the environment variables
@@ -78,8 +78,9 @@ ENV ROS_MASTER_URI=http://localhost:11311
 ENV ROS_IP=127.0.0.1
 
 # Automatically source the workspace when starting a bash session
+RUN echo "source /opt/ros/noetic/setup.bash" >> /etc/bash.bashrc
 RUN echo "source /catkin_ws/devel/setup.bash" >> /etc/bash.bashrc
-RUN catkin config --extend /opt/ros/noetic && catkin build --no-status
+RUN catkin build
 
 RUN echo "--- build complete ---"
 
