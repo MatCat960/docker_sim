@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+<node type="fow_control_nyu_test" name="fow_control" pkg="fow_control" output="screen">
+  <remap from="/pose1" to="/voxl6/odom" />
+	<remap from="/pose2" to="/voxl5/odom" />
+	<remap from="/pose3" to="/voxl4/odom" />
+  <remap from="/cmd_vel_out" to="/voxl6/coverage_cmd_vel" />
+</node>
+<node name="coverage_commander_voxl6" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl6"/>
+</launch>

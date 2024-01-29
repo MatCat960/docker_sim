@@ -1,0 +1,5 @@
+<library path="lib/libFlightmare_Coverage">
+  <class name="swarmros/Flightmare_Coverage" type="swarmros::Flightmare_Coverage" base_class_type="nodelet::Nodelet">
+    <description>Nodelet for Coverage algorithm management in a Flightmare envoirment</description>
+  </class>
+</library>

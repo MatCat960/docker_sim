@@ -1,0 +1,21 @@
+version: '3.0'
+services:
+  sim_docker:
+    build:
+        context: ../
+        dockerfile: Dockerfile
+        args:
+          BASE_IMAGE: osrf/ros:noetic
+    image: sim_docker
+    command: /bin/bash 
+    container_name: sim_docker
+    privileged: true
+    shm_size: '2g'
+    pid: "host"
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      - TERM=xterm-color
+    volumes:
+      - /dev/shm:/dev/shm
+      - /tmp/.X11-unix/:/tmp/.X11-unix/

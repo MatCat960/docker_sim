@@ -1,0 +1,122 @@
+<launch>
+    <node name="coverage_robot_0"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 0
+            MODEL_NAME: hummingbird0
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot0/cmd_vel" to="/hummingbird0/autopilot/velocity_command"/>
+        <remap from="/turtlebot0/odom" to="/hummingbird0/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl6" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl6"/> -->
+    <!--node name="coverage_localization_voxl6" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl6"/-->
+
+    <node name="coverage_robot_1"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 1
+            MODEL_NAME: hummingbird1
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot1/cmd_vel" to="/hummingbird1/autopilot/velocity_command"/>
+        <remap from="/turtlebot1/odom" to="/hummingbird1/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl4" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl4"/> -->
+    <!--node name="coverage_localization_voxl4" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl4"/-->
+
+    <node name="coverage_robot_2"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 2
+            MODEL_NAME: hummingbird2
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot2/cmd_vel" to="/hummingbird2/autopilot/velocity_command"/>
+        <remap from="/turtlebot2/odom" to="/hummingbird2/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl5" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl5"/> -->
+    <!--node name="coverage_localization_voxl5" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl5"/-->
+
+    <node name="coverage_robot_3"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 3
+            MODEL_NAME: hummingbird3
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot3/cmd_vel" to="/hummingbird3/autopilot/velocity_command"/>
+        <remap from="/turtlebot3/odom" to="/hummingbird3/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl6" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl6"/> -->
+    <!--node name="coverage_localization_voxl6" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl6"/-->
+
+    <node name="coverage_robot_4"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 4
+            MODEL_NAME: hummingbird4
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot4/cmd_vel" to="/hummingbird4/autopilot/velocity_command"/>
+        <remap from="/turtlebot4/odom" to="/hummingbird4/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl4" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl4"/> -->
+    <!--node name="coverage_localization_voxl4" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl4"/-->
+
+    <node name="coverage_robot_5"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 6
+            ROBOT_RANGE: 15.0
+            ROBOT_ID: 5
+            MODEL_NAME: hummingbird5
+            AREA_SIZE_x: 40.0
+            AREA_SIZE_y: 40.0
+            AREA_LEFT: -20.0
+            AREA_BOTTOM: -20.0
+            CAMERA_FOV: 150
+            use_cbf: false
+        </rosparam>
+        <remap from="/turtlebot5/cmd_vel" to="/hummingbird5/autopilot/velocity_command"/>
+        <remap from="/turtlebot5/odom" to="/hummingbird5/ground_truth/odometry"/>
+    </node>
+    <!-- <node name="coverage_commander_voxl5" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl5"/> -->
+    <!--node name="coverage_localization_voxl5" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl5"/-->
+
+</launch>

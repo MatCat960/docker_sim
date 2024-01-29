@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ROBOTS_NUM" default="20" />
+    <arg name="NAME" default="hummingbird" />
+    <arg name="posfile" default="$(find coverage_unimore_nyu)/pos.txt"/>
+    
+
+    <node pkg="torch_pf" type="centralized_drones_sim" name="centralized_drones_sim" output="screen" >
+        <param name="ROBOTS_NUM" value="$(arg ROBOTS_NUM)" />
+        <param name="NAME" value="$(arg NAME)" />
+        <param name="FILE" value="$(arg posfile)" />
+        <remap from="/robot0/odom" to="/hummingbird0/ground_truth/odometry"/>
+        <remap from="/robot0/cmd_vel" to="/hummingbird0/autopilot/velocity_command"/>
+        <remap from="/robot1/odom" to="/hummingbird1/ground_truth/odometry"/>
+        <remap from="/robot1/cmd_vel" to="/hummingbird1/autopilot/velocity_command"/>
+        <remap from="/robot2/odom" to="/hummingbird2/ground_truth/odometry"/>
+        <remap from="/robot2/cmd_vel" to="/hummingbird2/autopilot/velocity_command"/>
+        <remap from="/robot3/odom" to="/hummingbird3/ground_truth/odometry"/>
+        <remap from="/robot3/cmd_vel" to="/hummingbird3/autopilot/velocity_command"/>
+        <remap from="/robot4/odom" to="/hummingbird4/ground_truth/odometry"/>
+        <remap from="/robot4/cmd_vel" to="/hummingbird4/autopilot/velocity_command"/>
+        <remap from="/robot5/odom" to="/hummingbird5/ground_truth/odometry"/>
+        <remap from="/robot5/cmd_vel" to="/hummingbird5/autopilot/velocity_command"/>
+        <remap from="/robot6/odom" to="/hummingbird6/ground_truth/odometry"/>
+        <remap from="/robot6/cmd_vel" to="/hummingbird6/autopilot/velocity_command"/>
+        <remap from="/robot7/odom" to="/hummingbird7/ground_truth/odometry"/>
+        <remap from="/robot7/cmd_vel" to="/hummingbird7/autopilot/velocity_command"/>
+        <remap from="/robot8/odom" to="/hummingbird8/ground_truth/odometry"/>
+        <remap from="/robot8/cmd_vel" to="/hummingbird8/autopilot/velocity_command"/>
+        <remap from="/robot9/odom" to="/hummingbird9/ground_truth/odometry"/>
+        <remap from="/robot9/cmd_vel" to="/hummingbird9/autopilot/velocity_command"/>
+        <remap from="/robot10/odom" to="/hummingbird10/ground_truth/odometry"/>
+        <remap from="/robot10/cmd_vel" to="/hummingbird10/autopilot/velocity_command"/>
+        <remap from="/robot11/odom" to="/hummingbird11/ground_truth/odometry"/>
+        <remap from="/robot11/cmd_vel" to="/hummingbird11/autopilot/velocity_command"/>
+        <remap from="/robot12/odom" to="/hummingbird12/ground_truth/odometry"/>
+        <remap from="/robot12/cmd_vel" to="/hummingbird12/autopilot/velocity_command"/>
+        <remap from="/robot13/odom" to="/hummingbird13/ground_truth/odometry"/>
+        <remap from="/robot13/cmd_vel" to="/hummingbird13/autopilot/velocity_command"/>
+        <remap from="/robot14/odom" to="/hummingbird14/ground_truth/odometry"/>
+        <remap from="/robot14/cmd_vel" to="/hummingbird14/autopilot/velocity_command"/>
+        <remap from="/robot15/odom" to="/hummingbird15/ground_truth/odometry"/>
+        <remap from="/robot15/cmd_vel" to="/hummingbird15/autopilot/velocity_command"/>
+        <remap from="/robot16/odom" to="/hummingbird16/ground_truth/odometry"/>
+        <remap from="/robot16/cmd_vel" to="/hummingbird16/autopilot/velocity_command"/>
+        <remap from="/robot17/odom" to="/hummingbird17/ground_truth/odometry"/>
+        <remap from="/robot17/cmd_vel" to="/hummingbird17/autopilot/velocity_command"/>
+        <remap from="/robot18/odom" to="/hummingbird18/ground_truth/odometry"/>
+        <remap from="/robot18/cmd_vel" to="/hummingbird18/autopilot/velocity_command"/>
+        <remap from="/robot19/odom" to="/hummingbird19/ground_truth/odometry"/>
+        <remap from="/robot19/cmd_vel" to="/hummingbird19/autopilot/velocity_command"/>
+    </node>
+
+
+
+</launch>

@@ -1,0 +1,24 @@
+# simulator params
+scene_id: 1
+main_loop_freq: 15.0
+main_render_freq: 30.0
+
+# mavs params
+number_of_drones: 32 # number of drones
+drone_wait_flight_time: 0.0
+max_lin_vel: 6.0 # m/s
+max_ang_vel: 0.1 # rad/s
+
+## mav camera params
+camera: false
+camera_fov: 90.0
+camera_width: 720
+camera_height: 480
+
+# unity params
+unity_render: false
+gui: false
+
+#coverage settings
+gaussian_distribution: false
+pose_noise_stddev: 0.001

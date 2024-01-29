@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="rome">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://rome10/meshes/rome.dae</uri>
+          </mesh>
+          <scale>100.0 100.0 100.0</scale>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://rome10/meshes/rome.dae</uri>
+          </mesh>
+          <scale>100.0 100.0 100.0</scale>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+<node type="fow_control_node" name="fow_control" pkg="fow_control" output="screen">
+	<remap from="/pose1" to="/hummingbird1/ground_truth/pose" />
+	<remap from="/pose2" to="/hummingbird2/ground_truth/pose" />
+	<remap from="/pose3" to="/hummingbird3/ground_truth/pose" />
+	<remap from="/cmd_vel_out" to="/hummingbird1/autopilot/velocity_command" />
+</node>
+</launch>

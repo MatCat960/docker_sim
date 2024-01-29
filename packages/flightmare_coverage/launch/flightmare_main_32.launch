@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="custom_config" default="" />
+	<arg name="standalone" default="true" />
+	<arg name="debug_nodelet" default="false" />
+	<arg name="configuration_path" value="$(find swarmros)/params" />
+	<arg name="area_size" default="50" />
+    	<arg name="robot_range" default="10" />
+    	<arg name="iteration" default="1" />
+    	<arg name="type" default="geometric" />
+
+	<!-- define launch-prefix for debugging -->
+	<arg     if="$(arg debug_nodelet)" name="launch_prefix" value="xterm -e gdb --args" />
+	<arg unless="$(arg debug_nodelet)" name="launch_prefix" value="" />
+
+	<!-- switching between standalone and nodeleted nodelet -->
+	<arg     if="$(arg standalone)" name="nodelet" value="standalone" />
+	<arg unless="$(arg standalone)" name="nodelet" value="load" />
+	<arg     if="$(arg standalone)" name="nodelet_manager" value="" />
+	<arg unless="$(arg standalone)" name="nodelet_manager" value="" />
+	
+	<node name="fm_coverage" pkg="nodelet" type="nodelet" args="$(arg nodelet) swarmros/Flightmare_Coverage $(arg nodelet_manager)" output="screen" launch-prefix="$(arg launch_prefix)">
+		<remap from="swarming/state_estimate1" to="/hummingbird1/ground_truth/odometry" />
+		<remap from="swarming/state_estimate2" to="/hummingbird2/ground_truth/odometry" />
+		<remap from="swarming/state_estimate3" to="/hummingbird3/ground_truth/odometry" />
+		<remap from="swarming/state_estimate4" to="/hummingbird4/ground_truth/odometry" />
+		<remap from="swarming/state_estimate5" to="/hummingbird5/ground_truth/odometry" />
+		<remap from="swarming/state_estimate6" to="/hummingbird6/ground_truth/odometry" />
+		<remap from="swarming/state_estimate7" to="/hummingbird7/ground_truth/odometry" />
+		<remap from="swarming/state_estimate8" to="/hummingbird8/ground_truth/odometry" />
+		<remap from="swarming/state_estimate9" to="/hummingbird9/ground_truth/odometry" />
+		<remap from="swarming/state_estimate10" to="/hummingbird10/ground_truth/odometry" />
+		<remap from="swarming/state_estimate11" to="/hummingbird11/ground_truth/odometry" />
+		<remap from="swarming/state_estimate12" to="/hummingbird12/ground_truth/odometry" />
+		<remap from="swarming/state_estimate13" to="/hummingbird13/ground_truth/odometry" />
+		<remap from="swarming/state_estimate14" to="/hummingbird14/ground_truth/odometry" />
+		<remap from="swarming/state_estimate15" to="/hummingbird15/ground_truth/odometry" />
+		<remap from="swarming/state_estimate16" to="/hummingbird16/ground_truth/odometry" />
+		<remap from="swarming/state_estimate17" to="/hummingbird17/ground_truth/odometry" />
+		<remap from="swarming/state_estimate18" to="/hummingbird18/ground_truth/odometry" />
+		<remap from="swarming/state_estimate19" to="/hummingbird19/ground_truth/odometry" />
+		<remap from="swarming/state_estimate20" to="/hummingbird20/ground_truth/odometry" />
+		<remap from="swarming/state_estimate21" to="/hummingbird21/ground_truth/odometry" />
+		<remap from="swarming/state_estimate22" to="/hummingbird22/ground_truth/odometry" />
+		<remap from="swarming/state_estimate23" to="/hummingbird23/ground_truth/odometry" />
+		<remap from="swarming/state_estimate24" to="/hummingbird24/ground_truth/odometry" />
+		<remap from="swarming/state_estimate25" to="/hummingbird25/ground_truth/odometry" />
+		<remap from="swarming/state_estimate26" to="/hummingbird26/ground_truth/odometry" />
+		<remap from="swarming/state_estimate27" to="/hummingbird27/ground_truth/odometry" />
+		<remap from="swarming/state_estimate28" to="/hummingbird28/ground_truth/odometry" />
+		<remap from="swarming/state_estimate29" to="/hummingbird29/ground_truth/odometry" />
+		<remap from="swarming/state_estimate30" to="/hummingbird30/ground_truth/odometry" />
+		<remap from="swarming/state_estimate31" to="/hummingbird31/ground_truth/odometry" />
+		<remap from="swarming/state_estimate32" to="/hummingbird32/ground_truth/odometry" />
+
+		<param name="configuration_path" value="$(arg configuration_path)" type="string" />
+		<param name="area_size" type="double" value="$(arg area_size)"/>
+		<param name="robot_range" type="double" value="$(arg robot_range)"/>
+		<param name="iteration" type="int" value="$(arg iteration)"/>
+		<param name="type" type="string" value="$(arg type)"/>
+		
+		<rosparam command="load" file="$(find swarmros)/params/default_32.yaml"/>
+	</node>
+</launch>

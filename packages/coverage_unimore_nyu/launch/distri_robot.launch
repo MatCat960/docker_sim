@@ -1,0 +1,19 @@
+<launch>
+    <node name="coverage_distributed_robotnode"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [1,2,3]
+            ROBOTS_NUM: 3 
+            ROBOT_RANGE: 3.0
+            ROBOT_ID: 0 
+            MODEL_NAME: dragonfly4
+            AREA_SIZE_x: 5.4
+            AREA_SIZE_y: 3.0
+            AREA_LEFT: -1.9
+            AREA_BOTTOM: -1.5
+        </rosparam>
+        <remap from="/turtlebot0/cmd_vel" to="/dragonfly4/cmd_vel"/>
+        <remap from="/turtlebot1/cmd_vel" to="/dragonfly12/cmd_vel"/>
+        <remap from="/turtlebot2/cmd_vel" to="/dragonfly13/cmd_vel"/>
+    </node>
+</launch>
+

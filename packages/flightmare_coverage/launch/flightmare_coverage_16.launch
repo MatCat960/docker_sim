@@ -1,0 +1,676 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="quad_name" default="hummingbird" />
+	<arg name="mav_name" default="$(arg quad_name)" />
+	<arg name="model" value="$(find rotors_description)/urdf/mav_generic_odometry_sensor.gazebo" />
+	<arg name="world_name" default="$(find swarmros)/worlds/empty.world" />
+	<arg name="use_unity_editor" default="false" />
+	<arg name="paused" value="true" />
+        <arg name="gui" value="false" />
+	<arg name="use_mpc" default="false" />
+	<arg name="use_ground_truth" default="true" />
+	<arg name="enable_ground_truth" default="true" />
+	<arg name="enable_command_feedthrough" default="false" />
+	<arg name="custom_models" default="" />
+	<arg name="enable_logging" default="false" />
+
+	<arg name="debug" default="false" />
+	<arg name="verbose" default="false" />
+	<param name="use_sim_time" value="true" />
+
+	<!-- Gazebo stuff to spawn the world ! -->
+	<env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find rotors_gazebo)/models:$(arg custom_models)" />
+	<env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find rotors_gazebo)/models" />
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(arg world_name)" />
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="verbose" value="$(arg verbose)" />
+	</include>
+<!-- ================================================  Spawn the quadrotor ================================================  -->
+<group ns="$(arg mav_name)1">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)1" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)1" />
+		<arg name="x" value="1" />
+		<arg name="y" value="1" />
+	</include>
+</group>
+<group ns="$(arg mav_name)2">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)2" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)2" />
+		<arg name="x" value="1" />
+		<arg name="y" value="2" />
+	</include>
+</group>
+<group ns="$(arg mav_name)3">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)3" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)3" />
+		<arg name="x" value="1" />
+		<arg name="y" value="3" />
+	</include>
+</group>
+<group ns="$(arg mav_name)4">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)4" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)4" />
+		<arg name="x" value="1" />
+		<arg name="y" value="4" />
+	</include>
+</group>
+<group ns="$(arg mav_name)5">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)5" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)5" />
+		<arg name="x" value="2" />
+		<arg name="y" value="1" />
+	</include>
+</group>
+<group ns="$(arg mav_name)6">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)6" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)6" />
+		<arg name="x" value="2" />
+		<arg name="y" value="2" />
+	</include>
+</group>
+<group ns="$(arg mav_name)7">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)7" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)7" />
+		<arg name="x" value="2" />
+		<arg name="y" value="3" />
+	</include>
+</group>
+<group ns="$(arg mav_name)8">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)8" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)8" />
+		<arg name="x" value="2" />
+		<arg name="y" value="4" />
+	</include>
+</group>
+<group ns="$(arg mav_name)9">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)9" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)9" />
+		<arg name="x" value="3" />
+		<arg name="y" value="1" />
+	</include>
+</group>
+<group ns="$(arg mav_name)10">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)10" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)10" />
+		<arg name="x" value="3" />
+		<arg name="y" value="2" />
+	</include>
+</group>
+<group ns="$(arg mav_name)11">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)11" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)11" />
+		<arg name="x" value="3" />
+		<arg name="y" value="3" />
+	</include>
+</group>
+<group ns="$(arg mav_name)12">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)12" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)12" />
+		<arg name="x" value="3" />
+		<arg name="y" value="4" />
+	</include>
+</group>
+<group ns="$(arg mav_name)13">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)13" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)13" />
+		<arg name="x" value="4" />
+		<arg name="y" value="1" />
+	</include>
+</group>
+<group ns="$(arg mav_name)14">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)14" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)14" />
+		<arg name="x" value="4" />
+		<arg name="y" value="2" />
+	</include>
+</group>
+<group ns="$(arg mav_name)15">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)15" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)15" />
+		<arg name="x" value="4" />
+		<arg name="y" value="3" />
+	</include>
+</group>
+<group ns="$(arg mav_name)16">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)16" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)16" />
+		<arg name="x" value="4" />
+		<arg name="y" value="4" />
+	</include>
+</group>
+  <!-- ================================================  RPG stuff 1 ================================================  -->
+
+<group ns="$(arg quad_name)1">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 2 ================================================  -->
+
+<group ns="$(arg quad_name)2">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 3 ================================================  -->
+
+<group ns="$(arg quad_name)3">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 4 ================================================  -->
+
+<group ns="$(arg quad_name)4">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 5 ================================================  -->
+
+<group ns="$(arg quad_name)5">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 6 ================================================  -->
+
+<group ns="$(arg quad_name)6">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 7 ================================================  -->
+
+<group ns="$(arg quad_name)7">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 8 ================================================  -->
+
+<group ns="$(arg quad_name)8">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 9 ================================================  -->
+
+<group ns="$(arg quad_name)9">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 10 ================================================  -->
+
+<group ns="$(arg quad_name)10">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 11 ================================================  -->
+
+<group ns="$(arg quad_name)11">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 12 ================================================  -->
+
+<group ns="$(arg quad_name)12">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 13 ================================================  -->
+
+<group ns="$(arg quad_name)13">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 14 ================================================  -->
+
+<group ns="$(arg quad_name)14">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 15 ================================================  -->
+
+<group ns="$(arg quad_name)15">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  RPG stuff 16 ================================================  -->
+
+<group ns="$(arg quad_name)16">
+	<!-- RPG RotorS interface. -->
+	<node pkg="rpg_rotors_interface" type="rpg_rotors_interface" name="rpg_rotors_interface" output="screen">
+		<rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+		<!-- .. -->
+		<remap from="odometry" to="ground_truth/odometry" />
+		<remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+	</node>
+	<!-- Autopilot -->
+	<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+		<rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+		<rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+		<param name="position_controller/use_rate_mode" value="True" />
+		<param name="velocity_estimate_in_world_frame" value="false" />
+		<param name="state_estimate_timeout" value="0.1" />
+		<param name="control_command_delay" value="0.05" />
+
+		<param name="go_to_pose_max_velocity" value="10.00" />
+		<param name="go_to_pose_max_normalized_thrust" value="20.00" />
+		<param name="go_to_pose_max_roll_pitch_rate" value="1.5" />
+		
+		<param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+		<remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+	</node>
+</group>
+  <!-- ================================================  Flightmare Render ================================================  -->
+
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find swarmros)/rviz/default.rviz" />
+
+</launch>

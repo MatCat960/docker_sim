@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>coverage_unimore_nyu</name>
+  <version>0.0.0</version>
+  <description>Coverage implementation for testing on UAVs at NYU</description>
+
+  <maintainer email="federico.pratissoli@unimore.it">Federico</maintainer>
+  <author email="federico.pratissoli@unimore.it">Federico</author>
+  <author email="beatrice.capelli@unimore.it">Beatrice</author>
+
+  <license>TODO</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2</depend>
+  <depend>mav_manager</depend>
+  <depend>fow_control</depend>
+  <!--depend>gazebo_ros</depend-->
+  <!--exec_depend>gazebo</exec_depend-->
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <export>
+  </export>
+</package>

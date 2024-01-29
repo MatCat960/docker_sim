@@ -1,0 +1,56 @@
+<launch>
+    <node name="coverage_distributed_voxl6_node"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [1,2,0]
+            ROBOTS_NUM: 3 
+            ROBOT_RANGE: 3.0
+            ROBOT_ID: 0
+            MODEL_NAME: voxl6 
+            AREA_SIZE_x: 5.4
+            AREA_SIZE_y: 3.0
+            AREA_LEFT: -1.9
+            AREA_BOTTOM: -1.5
+        </rosparam>
+        <remap from="/turtlebot0/cmd_vel" to="/voxl6/coverage_cmd_vel"/>
+        <remap from="/turtlebot0/odom" to="/voxl6/coverage_odom"/>
+    </node>
+    <node name="coverage_commander_voxl6" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl6"/>
+    <!--node name="coverage_localization_voxl6" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl6"/-->
+
+    <!---node name="coverage_distributed_voxl4_node"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [1,2,0]
+            ROBOTS_NUM: 3 
+            ROBOT_RANGE: 3.0
+            ROBOT_ID: 1
+            MODEL_NAME: voxl4
+            AREA_SIZE_x: 5.4
+            AREA_SIZE_y: 3.0
+            AREA_LEFT: -1.9
+            AREA_BOTTOM: -1.5
+        </rosparam>
+        <remap from="/turtlebot1/cmd_vel" to="/voxl4/coverage_cmd_vel"/>
+        <remap from="/turtlebot1/odom" to="/voxl4/coverage_odom"/>
+    </node>
+    <node name="coverage_commander_voxl4" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl4"/-->
+    <!--node name="coverage_localization_voxl4" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl4"/-->
+
+    <!-- node name="coverage_distributed_voxl5_node"  pkg="coverage_unimore_nyu" type="coverage_distributed_robotnode" output="screen">
+        <rosparam>
+            ids: [1,2,0]
+            ROBOTS_NUM: 3 
+            ROBOT_RANGE: 3.0
+            ROBOT_ID: 2
+            MODEL_NAME: voxl5
+            AREA_SIZE_x: 5.4
+            AREA_SIZE_y: 3.0
+            AREA_LEFT: -1.9
+            AREA_BOTTOM: -1.5
+        </rosparam>
+        <remap from="/turtlebot2/cmd_vel" to="/voxl5/coverage_cmd_vel"/>
+        <remap from="/turtlebot2/odom" to="/voxl5/coverage_odom"/>
+    </node>
+    <node name="coverage_commander_voxl5" pkg="coverage_unimore_nyu" type="voxl_commander.py" output="screen" ns="voxl5"/-->
+    <!--node name="coverage_localization_voxl5" pkg="coverage_unimore_nyu" type="voxl_localize.py" output="screen" ns="voxl5"/-->
+
+</launch>

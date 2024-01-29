@@ -1,0 +1,12 @@
+<group ns="$(arg mav_name)__UAVNUMBER__">
+	<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="mav_name" value="$(arg mav_name)" />
+		<arg name="namespace" value="$(arg mav_name)__UAVNUMBER__" />
+		<arg name="model" value="$(arg model)" />
+		<arg name="enable_logging" value="$(arg enable_logging)" />
+		<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+		<arg name="log_file" value="$(arg mav_name)__UAVNUMBER__" />
+		<arg name="x" value="__UAVX__" />
+		<arg name="y" value="__UAVY__" />
+	</include>
+</group>

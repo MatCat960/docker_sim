@@ -1,0 +1,16 @@
+{
+    "threedimensional": false,
+    "desiredAltitude": 1.5,
+    "robotRange": 2.5,
+    "areaLeft": -0.5,
+    "areaBottom": -0.3,
+    "areaSizeX": 10.0,
+    "areaSizeY": 10.0,
+    "speedGain": 1.0,
+    "centroids": {
+        "gaussian": {
+            "mean": [0.0, 0.0],
+            "var": 15
+        }
+    }
+}

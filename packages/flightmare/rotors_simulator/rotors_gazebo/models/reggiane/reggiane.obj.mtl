@@ -1,0 +1,361 @@
+# This file was created by OSM2World 0.4.0-SNAPSHOT - https://osm2world.org
+
+
+newmtl ASPHALT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+map_Kd reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+Ni 1
+illum 2
+
+newmtl MAT_0_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+map_Kd reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+Ni 1
+illum 2
+
+newmtl MAT_0_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-road_marking_crossing-505034980962341463.png
+map_Kd reggiane.obj_textures/tex-road_marking_crossing-505034980962341463.png
+Ni 1
+illum 2
+
+newmtl KERB_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-KnerrKerb0001-11504370178176336652.png
+map_Kd reggiane.obj_textures/tex-KnerrKerb0001-11504370178176336652.png
+Ni 1
+illum 2
+
+newmtl CONCRETE_0
+Ns 92.156863
+Ka 0.27450982 0.27450982 0.27450982
+Kd 0.27450982 0.27450982 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Concrete034_Color-10288931362508689857.png
+map_Kd reggiane.obj_textures/tex-Concrete034_Color-10288931362508689857.png
+Ni 1
+illum 2
+
+newmtl STEEL_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Metal002_Color-17349426651144401755.png
+map_Kd reggiane.obj_textures/tex-Metal002_Color-17349426651144401755.png
+Ni 1
+illum 2
+
+newmtl BUS_STOP_SIGN_0
+Ns 92.156863
+Ka 0.49019608 0.4509804 0.023529412
+Kd 0.49019608 0.4509804 0.023529412
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl BRICK_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Bricks029_Color-17184339618031969714.png
+map_Kd reggiane.obj_textures/tex-Bricks029_Color-17184339618031969714.png
+Ni 1
+illum 2
+
+newmtl TREE_BILLBOARD_BROAD_LEAVED_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka -clamp on reggiane.obj_textures/tex-arbaro_tree_broad_leaved-13651820293165275221.png
+map_Kd -clamp on reggiane.obj_textures/tex-arbaro_tree_broad_leaved-13651820293165275221.png
+map_d -clamp on reggiane.obj_textures/tex-arbaro_tree_broad_leaved-13651820293165275221.png
+Ni 1
+illum 2
+
+newmtl TREE_BILLBOARD_CONIFEROUS_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka -clamp on reggiane.obj_textures/tex-arbaro_tree_coniferous-10903463851209042829.png
+map_Kd -clamp on reggiane.obj_textures/tex-arbaro_tree_coniferous-10903463851209042829.png
+map_d -clamp on reggiane.obj_textures/tex-arbaro_tree_coniferous-10903463851209042829.png
+Ni 1
+illum 2
+
+newmtl ROAD_MARKING_DASHED_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+map_Kd reggiane.obj_textures/tex-Asphalt010_Color-5431462895277745098.png
+Ni 1
+illum 2
+
+newmtl ROAD_MARKING_DASHED_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-road_marking_dash-12726735967456239638.png
+map_Kd reggiane.obj_textures/tex-road_marking_dash-12726735967456239638.png
+Ni 1
+illum 2
+
+newmtl WOOD_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Wood026_Color-4908084289933436655.png
+map_Kd reggiane.obj_textures/tex-Wood026_Color-4908084289933436655.png
+Ni 1
+illum 2
+
+newmtl RAIL_BALLAST_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Gravel020_Color-16056168759839303315.png
+map_Kd reggiane.obj_textures/tex-Gravel020_Color-16056168759839303315.png
+Ni 1
+illum 2
+
+newmtl RAILWAY_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Railway_Color-1982265821835931284.png
+map_Kd reggiane.obj_textures/tex-Railway_Color-1982265821835931284.png
+Ni 1
+illum 2
+
+newmtl CHAIN_LINK_FENCE_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Fence006_Color-6946827320925678329.png
+map_Kd reggiane.obj_textures/tex-Fence006_Color-6946827320925678329.png
+map_d reggiane.obj_textures/tex-Fence006_Color-6946827320925678329.png
+Ni 1
+illum 2
+
+newmtl METAL_FENCE_POST_0
+Ns 92.156863
+Ka 0.36862746 0.3882353 0.4
+Kd 0.36862746 0.3882353 0.4
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl BRIDGE_DEFAULT_0
+Ns 92.156863
+Ka 0.2509804 0.2509804 0.2509804
+Kd 0.2509804 0.2509804 0.2509804
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl BRIDGE_PILLAR_DEFAULT_0
+Ns 92.156863
+Ka 0.2509804 0.2509804 0.2509804
+Kd 0.2509804 0.2509804 0.2509804
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl TERRAIN_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Ground003_Color-8940980164726806611.png
+map_Kd reggiane.obj_textures/tex-Ground003_Color-8940980164726806611.png
+Ni 1
+illum 2
+
+newmtl WATER_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-P1140080E_Water-16666323744468115488.png
+map_Kd reggiane.obj_textures/tex-P1140080E_Water-16666323744468115488.png
+Ni 1
+illum 2
+
+newmtl STONE_0
+Ns 92.156863
+Ka 0.3137255 0.3254902 0.30588236
+Kd 0.3137255 0.3254902 0.30588236
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Bricks008_Color-16869200679903923187.png
+map_Kd reggiane.obj_textures/tex-Bricks008_Color-16869200679903923187.png
+Ni 1
+illum 2
+
+newmtl BUILDING_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.4509804 0.27450982
+Kd 0.5019608 0.4509804 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Plaster002_Color-14720101351377002880.png
+map_Kd reggiane.obj_textures/tex-Plaster002_Color-14720101351377002880.png
+Ni 1
+illum 2
+
+newmtl ROOF_DEFAULT_0
+Ns 92.156863
+Ka 0.4 0.0 0.0
+Kd 0.4 0.0 0.0
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-RoofingTiles010_Color-16592354874307218561.png
+map_Kd reggiane.obj_textures/tex-RoofingTiles010_Color-16592354874307218561.png
+Ni 1
+illum 2
+
+newmtl GARAGE_DOOR_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-DE20F1GarageDoor00001-2105762951979760477.png
+map_Kd reggiane.obj_textures/tex-DE20F1GarageDoor00001-2105762951979760477.png
+Ni 1
+illum 2
+
+newmtl GRASS_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Ground003_Color-8940980164726806611.png
+map_Kd reggiane.obj_textures/tex-Ground003_Color-8940980164726806611.png
+Ni 1
+illum 2
+
+newmtl PITCH_SOCCER_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Grass-2048-707840147169155354.png
+map_Kd reggiane.obj_textures/tex-Grass-2048-707840147169155354.png
+Ni 1
+illum 2
+
+newmtl PITCH_SOCCER_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka -clamp on reggiane.obj_textures/tex-pitchSoccer-4818749352489184293.png
+map_Kd -clamp on reggiane.obj_textures/tex-pitchSoccer-4818749352489184293.png
+Ni 1
+illum 2
+
+newmtl EARTH_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Ground042_Color-14231872162155928417.png
+map_Kd reggiane.obj_textures/tex-Ground042_Color-14231872162155928417.png
+Ni 1
+illum 2
+
+newmtl MAT_1_0
+Ns 92.156863
+Ka 0.5019608 0.4509804 0.27450982
+Kd 0.5019608 0.4509804 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Plaster002_Color-14720101351377002880.png
+map_Kd reggiane.obj_textures/tex-Plaster002_Color-14720101351377002880.png
+Ni 1
+illum 2
+
+newmtl MAT_1_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-MarekCompositeWall00001_transparent-17471674499522660711.png
+map_Kd reggiane.obj_textures/tex-MarekCompositeWall00001_transparent-17471674499522660711.png
+Ni 1
+illum 2
+
+newmtl WOOD_WALL_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-WoodSiding008_Color-11316097842711357669.png
+map_Kd reggiane.obj_textures/tex-WoodSiding008_Color-11316097842711357669.png
+Ni 1
+illum 2
+
+newmtl SCRUB_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka reggiane.obj_textures/tex-Grass-2048-707840147169155354.png
+map_Kd reggiane.obj_textures/tex-Grass-2048-707840147169155354.png
+Ni 1
+illum 2
+

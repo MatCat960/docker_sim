@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ROBOTS_NUM" default="16" />
+    <arg name="ROBOT_FOV" default="160.0" />
+    <arg name="ROBOT_RANGE" default="15.0" />
+    <arg name="AREA_SIZE_x" default="60.0" />
+    <arg name="AREA_SIZE_y" default="60.0" />
+    <arg name="AREA_LEFT" default="-30.0" />
+    <arg name="AREA_BOTTOM" default="-30.0" />
+    <arg name="GRAPHICS_ON" default="false" />
+    <arg name="save_logs" default="false" />
+    <arg name="save_cpu" default="true" />
+    <arg name="GAUSSIAN_DISTRIBUTION" default="true"/>
+    <arg name="GAUSS_X" default="12.0" />
+    <arg name="GAUSS_Y" default="8.0" />
+    <arg name="coverage_model_path" default="$(find torch_pf)/models/coverage_model_old.pt"/>
+    <arg name="pf_model_path" default="$(find torch_pf)/models/pf_model_with_obs.pt"/>
+
+    <arg name="use_robot_0" default="1" />
+    <arg name="use_robot_1" default="0" />
+    <arg name="use_robot_2" default="0" />
+    <arg name="use_robot_3" default="0" />
+    <arg name="use_robot_4" default="0" />
+    <arg name="use_robot_5" default="0" />
+    <arg name="use_robot_6" default="0" />
+    <arg name="use_robot_7" default="0" />
+    <arg name="use_robot_8" default="0" />
+    <arg name="use_robot_9" default="0" />
+    <arg name="use_robot_10" default="0" />
+    <arg name="use_robot_11" default="0" />
+    <arg name="use_robot_12" default="0" />
+    <arg name="use_robot_13" default="0" />
+    <arg name="use_robot_14" default="0" />
+    <arg name="use_robot_15" default="0" />
+    <arg name="use_robot_16" default="0" />
+    <arg name="use_robot_17" default="0" />
+    <arg name="use_robot_18" default="0" />
+    <arg name="use_robot_19" default="0" />
+    
+
+
+    <node if="$(arg use_robot_0)" name="torch_coverage_0"  pkg="torch_pf" type="cbf_torch_coverage" output="screen" ns="hummingbird0">
+        <param name="ROBOT_ID" value="0" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_1)" name="torch_coverage_1"  pkg="torch_pf" type="cbf_torch_coverage" ns="hummingbird1">
+        <param name="ROBOT_ID" value="1" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_2)" name="torch_coverage_2"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird2">
+        <param name="ROBOT_ID" value="2" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_3)" name="torch_coverage_3"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird3">
+        <param name="ROBOT_ID" value="3" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_4)" name="torch_coverage_4"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird4">
+        <param name="ROBOT_ID" value="4" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_5)" name="torch_coverage_5"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird5">
+        <param name="ROBOT_ID" value="5" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_6)" name="torch_coverage_6"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird6">
+        <param name="ROBOT_ID" value="6" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_7)" name="torch_coverage_7"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird7">
+        <param name="ROBOT_ID" value="7" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_8)" name="torch_coverage_8"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird8">
+        <param name="ROBOT_ID" value="8" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_9)" name="torch_coverage_9"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird9">
+        <param name="ROBOT_ID" value="9" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_10)" name="torch_coverage_10"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird10">
+        <param name="ROBOT_ID" value="10" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_11)" name="torch_coverage_11"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird11">
+        <param name="ROBOT_ID" value="11" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+    <node if="$(arg use_robot_12)" name="torch_coverage_12"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird12">
+        <param name="ROBOT_ID" value="12" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_13)" name="torch_coverage_13"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird13">
+        <param name="ROBOT_ID" value="13" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_14)" name="torch_coverage_14"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird14">
+        <param name="ROBOT_ID" value="14" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_15)" name="torch_coverage_15"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird15">
+        <param name="ROBOT_ID" value="15" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_16)" name="torch_coverage_16"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird16">
+        <param name="ROBOT_ID" value="16" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_17)" name="torch_coverage_17"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird17">
+        <param name="ROBOT_ID" value="17" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_18)" name="torch_coverage_18"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird18">
+        <param name="ROBOT_ID" value="18" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+
+    <node if="$(arg use_robot_19)" name="torch_coverage_19"  pkg="torch_pf" type="cbf_torch_coverage"  ns="hummingbird19">
+        <param name="ROBOT_ID" value="19" />
+        <param name="ROBOTS_NUM"  value="$(arg ROBOTS_NUM)" />
+        <param name="ROBOT_FOV"  value="$(arg ROBOT_FOV)" />
+        <param name="ROBOT_RANGE"  value="$(arg ROBOT_RANGE)" />
+        <param name="AREA_SIZE_x"  value="$(arg AREA_SIZE_x)" />
+        <param name="AREA_SIZE_y"  value="$(arg AREA_SIZE_y)" />
+        <param name="AREA_LEFT"  value="$(arg AREA_LEFT)" />
+        <param name="AREA_BOTTOM"  value="$(arg AREA_BOTTOM)" />
+        <param name="GRAPHICS_ON"  value="$(arg GRAPHICS_ON)" />
+        <param name="SAVE_LOGS"  value="$(arg save_logs)" />
+        <param name="SAVE_CPU_TIME"  value="$(arg save_cpu)" />
+        <param name="GAUSSIAN_DISTRIBUTION" value="$(arg GAUSSIAN_DISTRIBUTION)"/>
+        <param name="GAUSS_X" value="$(arg GAUSS_X)" />
+        <param name="GAUSS_Y" value="$(arg GAUSS_Y)" />
+        <param name="COVERAGE_MODEL_PATH" value="$(arg coverage_model_path)"/>
+        <param name="PF_MODEL_PATH" value="$(arg pf_model_path)"/>
+    </node>
+</launch>

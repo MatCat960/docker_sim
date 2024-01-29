@@ -1,0 +1,4 @@
+<launch>
+    <node name="check_neighbors"  pkg="coverage_unimore_nyu" type="checker" output="screen"/>
+    <!-- <include file="$(find teleop_twist_joy)/launch/teleop.launch"/> -->
+</launch>

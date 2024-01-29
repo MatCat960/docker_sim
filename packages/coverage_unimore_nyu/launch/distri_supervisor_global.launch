@@ -1,0 +1,68 @@
+<launch>
+
+    <arg name="x0" default="4.0"/>
+	<arg name="y0" default="4.0"/>
+	<arg name="x1" default="4.0"/>
+	<arg name="y1" default="-4.0"/>
+	<arg name="x2" default="-4.0"/>
+	<arg name="y2" default="-4.0"/>
+	<arg name="x3" default="-4.0"/>
+	<arg name="y3" default="4.0"/>
+	<arg name="x4" default="-6.0"/>
+	<arg name="y4" default="0.0"/>
+	<arg name="x5" default="6.0"/>
+	<arg name="y5" default="0.0"/>
+
+    
+    <node name="coverage_supervisor_global"  pkg="coverage_unimore_nyu" type="coverage_supervisor_global" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5]
+            ROBOTS_NUM: 8
+            <!-- ROBOT_RANGE: 3.0
+            AREA_SIZE_x: 5.4    
+            AREA_SIZE_y: 3.0 -->
+            ROBOT_RANGE: 15.0
+            AREA_SIZE_x: 60.0
+            AREA_SIZE_y: 60.0
+            AREA_LEFT: -30.0
+            AREA_BOTTOM: -30.0
+            ROBOT_FOV: 360.0
+            SAVE_POS: false
+        </rosparam>
+        
+    </node>
+    <include file="$(find fow_control)/launch/flightmare_fow.launch">
+        <!-- <arg name="x0" value="$(arg x0)"/>
+        <arg name="y0" value="$(arg y0)"/>
+        <arg name="x1" value="$(arg x1)"/>
+        <arg name="y1" value="$(arg y1)"/>
+        <arg name="x2" value="$(arg x2)"/>
+        <arg name="y2" value="$(arg y2)"/>
+        <arg name="x3" value="$(arg x3)"/>
+        <arg name="y3" value="$(arg y3)"/>
+        <arg name="x4" value="$(arg x4)"/>
+        <arg name="y4" value="$(arg y4)"/>
+        <arg name="x5" value="$(arg x5)"/>
+        <arg name="y5" value="$(arg y5)"/>
+        <arg name="x6" value="$(arg x6)"/>
+        <arg name="y6" value="$(arg y6)"/>
+        <arg name="x7" value="$(arg x7)"/>
+        <arg name="y7" value="$(arg y7)"/>
+        <arg name="x8" value="$(arg x8)"/>
+        <arg name="y8" value="$(arg y8)"/>
+        <arg name="x9" value="$(arg x9)"/>
+        <arg name="y9" value="$(arg y9)"/>
+        <arg name="x10" value="$(arg x10)"/>
+        <arg name="y10" value="$(arg y10)"/>
+        <arg name="x11" value="$(arg x11)"/>
+        <arg name="y11" value="$(arg y11)"/>
+        <arg name="x12" value="$(arg x12)"/>
+        <arg name="y12" value="$(arg y12)"/> -->
+
+    </include>
+    <!-- <node name="joy" pkg="joy" type="joy_node" output="screen"/>
+    <node name="joy_control" pkg="coverage_unimore_nyu" type="joy2vel.py" output="screen">
+        <remap from="/hummingbird1/autopilot/velocity_command" to="/cmd_vel"/>
+    </node> -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find coverage_unimore_nyu)/rviz/def.rviz"/> -->
+</launch>

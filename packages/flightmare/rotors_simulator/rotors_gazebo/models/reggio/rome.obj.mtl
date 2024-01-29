@@ -1,0 +1,111 @@
+# This file was created by OSM2World 0.4.0-SNAPSHOT - https://osm2world.org
+
+
+newmtl PAVING_STONE_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-PavingStones072_Color-5800420112991679385.png
+map_Kd rome.obj_textures/tex-PavingStones072_Color-5800420112991679385.png
+Ni 1
+illum 2
+
+newmtl ASPHALT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-Asphalt010_Color-9754491274832870593.png
+map_Kd rome.obj_textures/tex-Asphalt010_Color-9754491274832870593.png
+Ni 1
+illum 2
+
+newmtl CONCRETE_0
+Ns 92.156863
+Ka 0.27450982 0.27450982 0.27450982
+Kd 0.27450982 0.27450982 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-Concrete034_Color-16559525060006249950.png
+map_Kd rome.obj_textures/tex-Concrete034_Color-16559525060006249950.png
+Ni 1
+illum 2
+
+newmtl SETT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-PavingStones033_Color-1084630006156808921.png
+map_Kd rome.obj_textures/tex-PavingStones033_Color-1084630006156808921.png
+Ni 1
+illum 2
+
+newmtl BUILDING_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.4509804 0.27450982
+Kd 0.5019608 0.4509804 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-Plaster002_Color-4571611856075769814.png
+map_Kd rome.obj_textures/tex-Plaster002_Color-4571611856075769814.png
+Ni 1
+illum 2
+
+newmtl ROOF_DEFAULT_0
+Ns 92.156863
+Ka 0.4 0.0 0.0
+Kd 0.4 0.0 0.0
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-RoofingTiles010_Color-85912859596585843.png
+map_Kd rome.obj_textures/tex-RoofingTiles010_Color-85912859596585843.png
+Ni 1
+illum 2
+
+newmtl PURIFIED_WATER_0
+Ns 92.156863
+Ka 0.0 0.0 0.5019608
+Kd 0.0 0.0 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl MAT_0_0
+Ns 92.156863
+Ka 0.5019608 0.4509804 0.27450982
+Kd 0.5019608 0.4509804 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-Plaster002_Color-4571611856075769814.png
+map_Kd rome.obj_textures/tex-Plaster002_Color-4571611856075769814.png
+Ni 1
+illum 2
+
+newmtl MAT_0_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-MarekCompositeWall00001_transparent-8031719818091909951.png
+map_Kd rome.obj_textures/tex-MarekCompositeWall00001_transparent-8031719818091909951.png
+Ni 1
+illum 2
+
+newmtl TERRAIN_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka rome.obj_textures/tex-Ground003_Color-16316626756870485232.png
+map_Kd rome.obj_textures/tex-Ground003_Color-16316626756870485232.png
+Ni 1
+illum 2
+

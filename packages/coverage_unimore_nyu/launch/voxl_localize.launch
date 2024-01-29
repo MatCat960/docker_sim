@@ -1,0 +1,5 @@
+<launch>
+    <node name="coverage_localization_voxl6" pkg="coverage_unimore_nyu" type="voxl_localize_vio.py" output="screen" ns="voxl6"/>
+    <node name="coverage_localization_voxl4" pkg="coverage_unimore_nyu" type="voxl_localize_vio.py" output="screen" ns="voxl4"/>
+    <node name="coverage_localization_voxl5" pkg="coverage_unimore_nyu" type="voxl_localize_vio.py" output="screen" ns="voxl5"/>
+</launch>

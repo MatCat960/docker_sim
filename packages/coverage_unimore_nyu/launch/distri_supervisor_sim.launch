@@ -1,0 +1,172 @@
+<launch>
+
+    <arg name="x0" default="4.0"/>
+	<arg name="y0" default="4.0"/>
+    <arg name="th0" default="0.0"/>
+	<arg name="x1" default="4.0"/>
+	<arg name="y1" default="-4.0"/>
+    <arg name="th1" default="0.0"/>
+	<arg name="x2" default="-4.0"/>
+	<arg name="y2" default="-4.0"/>
+    <arg name="th2" default="0.0"/>
+	<arg name="x3" default="-4.0"/>
+	<arg name="y3" default="4.0"/>
+    <arg name="th3" default="0.0"/>
+	<arg name="x4" default="-6.0"/>
+	<arg name="y4" default="0.0"/>
+    <arg name="th4" default="0.0"/>
+	<arg name="x5" default="6.0"/>
+	<arg name="y5" default="0.0"/>
+    <arg name="th5" default="0.0"/>
+    <arg name="x6" default="4.0"/>
+	<arg name="y6" default="4.0"/>
+    <arg name="th6" default="0.0"/>
+	<arg name="x7" default="4.0"/>
+	<arg name="y7" default="-4.0"/>
+    <arg name="th7" default="0.0"/>
+	<arg name="x8" default="-4.0"/>
+	<arg name="y8" default="-4.0"/>
+    <arg name="th8" default="0.0"/>
+	<arg name="x9" default="-4.0"/>
+	<arg name="y9" default="4.0"/>
+    <arg name="th9" default="0.0"/>
+	<arg name="x10" default="-6.0"/>
+	<arg name="y10" default="0.0"/>
+    <arg name="th10" default="0.0"/>
+	<arg name="x11" default="6.0"/>
+	<arg name="y11" default="0.0"/>
+    <arg name="th11" default="0.0"/>
+	<arg name="x12" default="-6.0"/>
+	<arg name="y12" default="0.0"/>
+    <arg name="th12" default="0.0"/>
+	<arg name="x13" default="6.0"/>
+	<arg name="y13" default="0.0"/>
+    <arg name="th13" default="0.0"/>
+	<arg name="x14" default="-6.0"/>
+	<arg name="y14" default="0.0"/>
+    <arg name="th14" default="0.0"/>
+	<arg name="x15" default="6.0"/>
+	<arg name="y15" default="0.0"/>
+    <arg name="th15" default="0.0"/>
+    <arg name="x16" default="6.0"/>
+	<arg name="y16" default="0.0"/>
+    <arg name="th16" default="0.0"/>
+	<arg name="x17" default="-6.0"/>
+	<arg name="y17" default="0.0"/>
+    <arg name="th17" default="0.0"/>
+	<arg name="x18" default="6.0"/>
+	<arg name="y18" default="0.0"/>
+    <arg name="th18" default="0.0"/>
+	<arg name="x19" default="6.0"/>
+	<arg name="y19" default="0.0"/>
+    <arg name="th19" default="0.0"/>
+
+    <arg name="gui" default="false" />
+
+    
+    <node name="coverage_distributed_supervisor"  pkg="coverage_unimore_nyu" type="coverage_distributed_supervisor_id" output="screen">
+        <rosparam>
+            ids: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+            ROBOTS_NUM: 16
+            <!-- ROBOT_RANGE: 3.0
+            AREA_SIZE_x: 5.4    
+            AREA_SIZE_y: 3.0 -->
+            ROBOT_RANGE: 15.0
+            AREA_SIZE_x: 60.0
+            AREA_SIZE_y: 60.0
+            AREA_LEFT: -30.0
+            AREA_BOTTOM: -30.0
+            ROBOT_FOV: 160.0
+            SAVE_POS: false
+        </rosparam>
+        <remap from="/turtlebot0/odom" to="/hummingbird0/ground_truth/odometry"/>
+        <remap from="/turtlebot1/odom" to="/hummingbird1/ground_truth/odometry"/>
+        <remap from="/turtlebot2/odom" to="/hummingbird2/ground_truth/odometry"/>
+        <remap from="/turtlebot3/odom" to="/hummingbird3/ground_truth/odometry"/>
+        <remap from="/turtlebot4/odom" to="/hummingbird4/ground_truth/odometry"/>
+        <remap from="/turtlebot5/odom" to="/hummingbird5/ground_truth/odometry"/>
+        <remap from="/turtlebot6/odom" to="/hummingbird6/ground_truth/odometry"/>
+        <remap from="/turtlebot7/odom" to="/hummingbird7/ground_truth/odometry"/>
+        <remap from="/turtlebot8/odom" to="/hummingbird8/ground_truth/odometry"/>
+        <remap from="/turtlebot9/odom" to="/hummingbird9/ground_truth/odometry"/>
+        <remap from="/turtlebot10/odom" to="/hummingbird10/ground_truth/odometry"/>
+        <remap from="/turtlebot11/odom" to="/hummingbird11/ground_truth/odometry"/>
+        <remap from="/turtlebot12/odom" to="/hummingbird12/ground_truth/odometry"/>
+        <remap from="/turtlebot13/odom" to="/hummingbird13/ground_truth/odometry"/>
+        <remap from="/turtlebot14/odom" to="/hummingbird14/ground_truth/odometry"/>
+        <remap from="/turtlebot15/odom" to="/hummingbird15/ground_truth/odometry"/>
+        <remap from="/turtlebot16/odom" to="/hummingbird16/ground_truth/odometry"/>
+        <remap from="/turtlebot17/odom" to="/hummingbird17/ground_truth/odometry"/>
+        <remap from="/turtlebot18/odom" to="/hummingbird18/ground_truth/odometry"/>
+        <remap from="/turtlebot19/odom" to="/hummingbird19/ground_truth/odometry"/>
+    </node>
+    <include file="$(find fow_control)/launch/flightmare_fow.launch">
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="x0" value="$(arg x0)"/>
+        <arg name="y0" value="$(arg y0)"/>
+        <arg name="th0" value="$(arg th0)"/>
+        <arg name="x1" value="$(arg x1)"/>
+        <arg name="y1" value="$(arg y1)"/>
+        <arg name="th1" value="$(arg th1)"/>
+        <arg name="x2" value="$(arg x2)"/>
+        <arg name="y2" value="$(arg y2)"/>
+        <arg name="th2" value="$(arg th2)"/>
+        <arg name="x3" value="$(arg x3)"/>
+        <arg name="y3" value="$(arg y3)"/>
+        <arg name="th3" value="$(arg th3)"/>
+        <arg name="x4" value="$(arg x4)"/>
+        <arg name="y4" value="$(arg y4)"/>
+        <arg name="th4" value="$(arg th4)"/>
+        <arg name="x5" value="$(arg x5)"/>
+        <arg name="y5" value="$(arg y5)"/>
+        <arg name="th5" value="$(arg th5)"/>
+        <arg name="x6" value="$(arg x6)"/>
+        <arg name="y6" value="$(arg y6)"/>
+        <arg name="th6" value="$(arg th6)"/>
+        <arg name="x7" value="$(arg x7)"/>
+        <arg name="y7" value="$(arg y7)"/>
+        <arg name="th7" value="$(arg th7)"/>
+        <arg name="x8" value="$(arg x8)"/>
+        <arg name="y8" value="$(arg y8)"/>
+        <arg name="th8" value="$(arg th8)"/>
+        <arg name="x9" value="$(arg x9)"/>
+        <arg name="y9" value="$(arg y9)"/>
+        <arg name="th9" value="$(arg th9)"/>
+        <arg name="x10" value="$(arg x10)"/>
+        <arg name="y10" value="$(arg y10)"/>
+        <arg name="th10" value="$(arg th10)"/>
+        <arg name="x11" value="$(arg x11)"/>
+        <arg name="y11" value="$(arg y11)"/>
+        <arg name="th11" value="$(arg th11)"/>
+        <arg name="x12" value="$(arg x12)"/>
+        <arg name="y12" value="$(arg y12)"/>
+        <arg name="th12" value="$(arg th12)"/>
+        <arg name="x13" value="$(arg x13)"/>
+        <arg name="y13" value="$(arg y13)"/>
+        <arg name="th13" value="$(arg th13)"/>
+        <arg name="x14" value="$(arg x14)"/>
+        <arg name="y14" value="$(arg y14)"/>
+        <arg name="th14" value="$(arg th14)"/>
+        <arg name="x15" value="$(arg x15)"/>
+        <arg name="y15" value="$(arg y15)"/>
+        <arg name="th15" value="$(arg th15)"/>
+        <arg name="x16" value="$(arg x16)"/>
+        <arg name="y16" value="$(arg y16)"/>
+        <arg name="th16" value="$(arg th16)"/>
+        <arg name="x17" value="$(arg x17)"/>
+        <arg name="y17" value="$(arg y17)"/>
+        <arg name="th17" value="$(arg th17)"/>
+        <arg name="x18" value="$(arg x18)"/>
+        <arg name="y18" value="$(arg y18)"/>
+        <arg name="th18" value="$(arg th18)"/>
+        <arg name="x19" value="$(arg x19)"/>
+        <arg name="y19" value="$(arg y19)"/>
+        <arg name="th19" value="$(arg th19)"/>
+
+    </include>
+    <!-- <node name="joy" pkg="joy" type="joy_node" output="screen"/>
+    <node name="joy_control" pkg="coverage_unimore_nyu" type="joy2vel.py" output="screen">
+        <remap from="/hummingbird1/autopilot/velocity_command" to="/cmd_vel"/>
+    </node> -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find coverage_unimore_nyu)/rviz/def.rviz"/> -->
+</launch>
