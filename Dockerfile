@@ -66,6 +66,7 @@ COPY packages/fow_control src/fow_control
 COPY packages/safety_control src/safety_control
 COPY packages/torch_pf src/torch_pf
 
+RUN apt-get install ros-noetic-roscpp
 
 # Build the workspace
 RUN apt-get update \
