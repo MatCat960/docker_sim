@@ -4,8 +4,8 @@ project(torch_pf)
 ## Compile as C++17
 add_compile_options(-std=c++11)
 
-string(REPLACE ":" ";" CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH})
-list(APPEND CMAKE_PREFIX_PATH "/home/mattia/libtorch")
+
+list(APPEND CMAKE_PREFIX_PATH "$HOME/osqp")
 
 
 ## Find catkin macros and libraries
