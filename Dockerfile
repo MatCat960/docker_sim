@@ -40,8 +40,8 @@ RUN cd $HOME/osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && 
 
 
 # Install osqp-eigen
-RUN git clone https://github.com/robotology/osqp-eigen.git
-RUN cd osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../ && make && make install
+RUN cd $HOME && git clone https://github.com/robotology/osqp-eigen.git
+RUN cd $HOME/osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../ && make && make install
 # RUN mkdir build
 # RUN cd build
 # RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen/build ../
