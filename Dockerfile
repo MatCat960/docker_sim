@@ -1,5 +1,5 @@
 # Use the official ROS "humble-desktop-full" image
-FROM ros:noetic-desktop-full
+FROM ros:noetic
 
 ARG USERNAME=user
 ARG DEBIAN_FRONTEND=noninteractive
@@ -69,8 +69,8 @@ COPY packages/torch_pf src/torch_pf
 
 # Build the workspace
 RUN apt-get update \
-  # && rosdep update \
-  # && rosdep install --from-paths src -iy \
+  && rosdep update \
+  && rosdep install --from-paths src -iy \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the environment variables
