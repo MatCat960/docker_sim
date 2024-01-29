@@ -74,7 +74,7 @@ RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/rotors_simulator.
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_common.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
-RUN echo "export FLIGHTMARE_PATH=~/workspace/src/flightmare" >> /root/.bashrc 
+RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /root/.bashrc 
 RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
