@@ -34,6 +34,17 @@ RUN cd /usr/include ; ln -sf eigen3/Eigen Eigen
 
 RUN apt update && apt install -y ros-noetic-tf2*
 
+# Install osqp-eigen
+RUN git clone https://github.com/robotology/osqp-eigen.git
+RUN cd osqp-eigen
+RUN mkdir build
+RUN cd build
+RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../
+RUN make
+RUN make install
+
+RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
+
 # Get packages for building
 WORKDIR /catkin_ws
 RUN mkdir src
