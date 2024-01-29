@@ -44,7 +44,7 @@ RUN cd $HOME/osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && 
 RUN cd $HOME && git clone https://github.com/robotology/osqp-eigen.git
 RUN cd $HOME/osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../ && make && make install
 
-RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
+# RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
 # Get packages for building
 WORKDIR /catkin_ws
@@ -75,7 +75,7 @@ RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_comm
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
 RUN echo "export FLIGHTMARE_PATH=~/workspace/src/flightmare" >> /root/.bashrc 
-RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" >> /root/.bashrc
+RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
 
@@ -87,7 +87,7 @@ RUN /bin/bash -c 'source /root/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
-RUN catkin build
+RUN cd /catkin_ws ; catkin build
 RUN echo "--- first build of libraries completed ---"
 
 
@@ -100,7 +100,7 @@ COPY packages/flightmare_coverage src/flightmare_coverage
 # COPY packages/safety_control src/safety_control
 COPY packages/torch_pf src/torch_pf
 
-RUN apt-get install ros-noetic-roscpp
+# RUN apt-get install ros-noetic-roscpp#
 
 # Build the workspace
 RUN apt-get update \
