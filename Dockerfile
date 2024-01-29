@@ -75,7 +75,8 @@ RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_comm
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
 RUN echo "export FLIGHTMARE_PATH=~/workspace/src/flightmare" >> /root/.bashrc 
-RUN /bin/bash -c 'source /root/.bashrc'
+RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" >> /root/.bashrc
+# RUN /bin/bash -c 'source /root/.bashrc'
 
 # Clone your ROS packages into the workspace (replace <your_repo_url> with the actual URL)
 COPY packages/coverage_unimore_nyu src/coverage_unimore_nyu
@@ -99,8 +100,8 @@ ENV ROS_MASTER_URI=http://localhost:11311
 ENV ROS_IP=127.0.0.1
 
 # Automatically source the workspace when starting a bash session
-RUN echo "source /opt/ros/noetic/setup.bash" >> /etc/bash.bashrc
-RUN echo "source /catkin_ws/devel/setup.bash" >> /etc/bash.bashrc
+RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
 RUN /bin/bash -c 'source /root/.bashrc'
 RUN catkin build
 
