@@ -1,5 +1,5 @@
 # Use the official ROS "humble-desktop-full" image
-FROM ros:noetic
+FROM ros:noetic-desktop-full
 
 ARG USERNAME=user
 ARG DEBIAN_FRONTEND=noninteractive
