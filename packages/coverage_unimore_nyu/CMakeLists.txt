@@ -55,7 +55,7 @@ generate_messages(
 ################################################################################
 
 catkin_package(
-  INCLUDE_DIRS include
+  # INCLUDE_DIRS include
   # LIBRARIES PIDController
   CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf2 message_runtime #gazebo_ros
   DEPENDS gazebo_ros
