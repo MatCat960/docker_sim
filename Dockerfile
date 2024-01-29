@@ -9,6 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Set the "HOME" environment variable
 ENV HOME=/home/$USERNAME
+ENV OsqpEigen_DIR=$HOME/osqp-eigen
 
 # Set root password
 RUN echo 'root:root' | chpasswd
