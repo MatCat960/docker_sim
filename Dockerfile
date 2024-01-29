@@ -78,7 +78,7 @@ RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /root/.bashrc
 RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
-RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins
+RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-mavros ros-noetic-mavlink
 
 
 # Automatically source the workspace when starting a bash session
@@ -88,8 +88,8 @@ RUN /bin/bash -c 'source /root/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
-RUN catkin build
-RUN echo "--- first build of libraries completed ---"
+# RUN catkin build
+# RUN echo "--- first build of libraries completed ---"
 
 
 # Clone your ROS packages into the workspace (replace <your_repo_url> with the actual URL)
