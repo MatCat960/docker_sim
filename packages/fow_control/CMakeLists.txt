@@ -4,7 +4,7 @@ project(fow_control)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 string(REPLACE ":" ";" CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH})
-list(APPEND CMAKE_PREFIX_PATH "$HOME/osqp")
+list(APPEND CMAKE_PREFIX_PATH "$HOME/osqp-eigen")
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
