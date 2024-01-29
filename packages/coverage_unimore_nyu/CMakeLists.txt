@@ -11,37 +11,19 @@ add_compile_options(-std=c++11)
 # Find catkin packages and libraries for catkin and system dependencies
 ################################################################################
 #set(ARPL false)
-if (DEFINED ARPL)
-  find_package(catkin REQUIRED COMPONENTS
-    roscpp
-    std_msgs
-    sensor_msgs
-    geometry_msgs
-    nav_msgs
-    tf2
-    #gazebo_ros
-    message_generation
-    mav_manager
-    fow_control
-    pid_control
-  )
-  find_package(Eigen3 REQUIRED)
-  find_package(OsqpEigen REQUIRED)
-else()
-  find_package(catkin REQUIRED COMPONENTS
-    roscpp
-    std_msgs
-    sensor_msgs
-    geometry_msgs
-    nav_msgs
-    tf2
-    #gazebo_ros
-    message_generation
-    fow_control
-    pid_control
-  )
-  find_package(OsqpEigen REQUIRED)
-endif(DEFINED ARPL)
+ifind_package(catkin REQUIRED COMPONENTS
+  roscpp
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  nav_msgs
+  tf2
+  #gazebo_ros
+  message_generation
+  fow_control
+  pid_control
+)
+find_package(OsqpEigen REQUIRED)
 #find_package(gazebo REQUIRED)
 
 ################################################################################
@@ -71,35 +53,20 @@ generate_messages(
 ################################################################################
 # Declare catkin specific configuration to be passed to dependent projects
 ################################################################################
-if (DEFINED ARPL)
-catkin_package(
-  INCLUDE_DIRS include
-  # LIBRARIES PIDController
-  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf2 message_runtime mav_manager #gazebo_ros
-  DEPENDS gazebo_ros EIGEN3
-)
-else()
+
 catkin_package(
   INCLUDE_DIRS include
   # LIBRARIES PIDController
   CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf2 message_runtime #gazebo_ros
   DEPENDS gazebo_ros
 )
-endif(DEFINED ARPL)
 
 
 ################################################################################
 # Build
 ################################################################################
 #link_directories(${GAZEBO_LIBRARY_DIRS})
-if (DEFINED ARPL)
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-  ${EIGEN3_INCLUDE_DIR}
-  #${GAZEBO_INCLUDE_DIRS}
-)
-else()
+
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
@@ -107,7 +74,6 @@ include_directories(
   ${pid_control_INCLUDE_DIRS}
   #${GAZEBO_INCLUDE_DIRS}
 )
-endif(DEFINED ARPL)
 
 set(SFML_libraries
   "sfml-graphics"
