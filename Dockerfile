@@ -78,6 +78,7 @@ RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /root/.bashrc
 RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
+RUN apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
 
 
 # Automatically source the workspace when starting a bash session
@@ -87,7 +88,7 @@ RUN /bin/bash -c 'source /root/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
-RUN cd /catkin_ws ; catkin build
+RUN catkin build
 RUN echo "--- first build of libraries completed ---"
 
 
