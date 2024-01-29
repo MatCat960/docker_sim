@@ -43,11 +43,6 @@ RUN cd $HOME/osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && 
 # Install osqp-eigen
 RUN cd $HOME && git clone https://github.com/robotology/osqp-eigen.git
 RUN cd $HOME/osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../ && make && make install
-# RUN mkdir build
-# RUN cd build
-# RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen/build ../
-# RUN make
-# RUN make install
 
 RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
@@ -59,9 +54,31 @@ RUN catkin config --extend /opt/ros/noetic && catkin build --no-status
 # Get current directory
 RUN echo $PWD
 
+# Install flightmare
+RUN apt-get update ; apt-get install -y --no-install-recommends \
+   build-essential \
+   cmake \
+   libzmqpp-dev \
+   libopencv-dev 
+RUN apt-get install -y gazebo11
+RUN sudo apt-get install -y libgoogle-glog-dev protobuf-compiler ros-noetic-octomap-msgs ros-noetic-octomap-ros ros-noetic-joy python3-vcstool
+RUN pip install catkin-tools
+# RUN mkdir -p ~/workspace/src
+# RUN cd ~/workspace/ ; catkin config --init --mkdirs --extend /opt/ros/noetic --merge-devel --cmake-args -DCMAKE_BUILD_TYPE=Release
+RUN cd src/ ; git clone https://github.com/uzh-rpg/flightmare.git
+# flightmare dependencies
+RUN cd src/flightmare/ ; git clone https://github.com/catkin/catkin_simple.git 
+RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/eigen_catkin.git
+RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/mav_comm.git
+RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/rotors_simulator.git
+RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_common.git
+RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
+RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
+RUN echo "export FLIGHTMARE_PATH=~/workspace/src/flightmare" >> /root/.bashrc 
+
 # Clone your ROS packages into the workspace (replace <your_repo_url> with the actual URL)
 COPY packages/coverage_unimore_nyu src/coverage_unimore_nyu
-COPY packages/flightmare src/flightmare
+# COPY packages/flightmare src/flightmare
 COPY packages/flightmare_coverage src/flightmare_coverage
 COPY packages/fow_control src/fow_control
 COPY packages/safety_control src/safety_control
