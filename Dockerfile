@@ -39,7 +39,7 @@ RUN git clone https://github.com/robotology/osqp-eigen.git
 RUN cd osqp-eigen
 RUN mkdir build
 RUN cd build
-RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../
+RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen/build ../
 RUN make
 RUN make install
 
