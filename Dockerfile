@@ -110,8 +110,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the environment variables
-ENV ROS_MASTER_URI=http://localhost:11311
-ENV ROS_IP=127.0.0.1
+# ENV ROS_MASTER_URI=http://localhost:11311
+# ENV ROS_IP=127.0.0.1
 
 # Automatically source the workspace when starting a bash session
 # RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
