@@ -81,6 +81,7 @@ COPY packages/coverage_unimore_nyu src/coverage_unimore_nyu
 # COPY packages/flightmare src/flightmare
 COPY packages/flightmare_coverage src/flightmare_coverage
 COPY packages/fow_control src/fow_control
+COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
 COPY packages/torch_pf src/torch_pf
 
