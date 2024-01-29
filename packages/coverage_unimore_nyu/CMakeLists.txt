@@ -11,7 +11,7 @@ add_compile_options(-std=c++11)
 # Find catkin packages and libraries for catkin and system dependencies
 ################################################################################
 #set(ARPL false)
-ifind_package(catkin REQUIRED COMPONENTS
+find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   sensor_msgs
