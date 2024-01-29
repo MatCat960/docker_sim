@@ -78,13 +78,26 @@ RUN echo "export FLIGHTMARE_PATH=~/workspace/src/flightmare" >> /root/.bashrc
 RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
+
+
+# Automatically source the workspace when starting a bash session
+RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
+RUN /bin/bash -c 'source /root/.bashrc'
+COPY packages/fow_control src/fow_control
+COPY packages/pid_control src/pid_control
+COPY packages/safety_control src/safety_control
+RUN catkin build
+RUN echo "--- first build of libraries completed ---"
+
+
 # Clone your ROS packages into the workspace (replace <your_repo_url> with the actual URL)
 COPY packages/coverage_unimore_nyu src/coverage_unimore_nyu
 # COPY packages/flightmare src/flightmare
 COPY packages/flightmare_coverage src/flightmare_coverage
-COPY packages/fow_control src/fow_control
-COPY packages/pid_control src/pid_control
-COPY packages/safety_control src/safety_control
+# COPY packages/fow_control src/fow_control
+# COPY packages/pid_control src/pid_control
+# COPY packages/safety_control src/safety_control
 COPY packages/torch_pf src/torch_pf
 
 RUN apt-get install ros-noetic-roscpp
@@ -100,9 +113,9 @@ ENV ROS_MASTER_URI=http://localhost:11311
 ENV ROS_IP=127.0.0.1
 
 # Automatically source the workspace when starting a bash session
-RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
-RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
-RUN /bin/bash -c 'source /root/.bashrc'
+# RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+# RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
+# RUN /bin/bash -c 'source /root/.bashrc'
 RUN catkin build
 
 RUN echo "--- build complete ---"
