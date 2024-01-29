@@ -78,7 +78,7 @@ RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /root/.bashrc
 RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
-RUN apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
+RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
 
 
 # Automatically source the workspace when starting a bash session
