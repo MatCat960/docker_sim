@@ -88,8 +88,8 @@ RUN /bin/bash -c 'source /root/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
-# RUN catkin build
-# RUN echo "--- first build of libraries completed ---"
+RUN catkin build
+RUN echo "--- first build of libraries completed ---"
 
 
 # Clone your ROS packages into the workspace (replace <your_repo_url> with the actual URL)
