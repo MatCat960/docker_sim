@@ -47,7 +47,7 @@ RUN cd $HOME/osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREF
 # RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
 # Get packages for building
-WORKDIR /catkin_ws
+WORKDIR $HOME/catkin_ws
 RUN mkdir src
 RUN catkin config --extend /opt/ros/noetic && catkin build --no-status
 
@@ -61,7 +61,7 @@ RUN apt-get update ; apt-get install -y --no-install-recommends \
    libzmqpp-dev \
    libopencv-dev 
 RUN apt-get install -y gazebo11
-RUN sudo apt-get install -y libgoogle-glog-dev protobuf-compiler ros-noetic-octomap-msgs ros-noetic-octomap-ros ros-noetic-joy python3-vcstool
+RUN apt-get install -y libgoogle-glog-dev protobuf-compiler ros-noetic-octomap-msgs ros-noetic-octomap-ros ros-noetic-joy python3-vcstool
 RUN pip install catkin-tools
 # RUN mkdir -p ~/workspace/src
 # RUN cd ~/workspace/ ; catkin config --init --mkdirs --extend /opt/ros/noetic --merge-devel --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -74,17 +74,17 @@ RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/rotors_simulator.
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_common.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
-RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /root/.bashrc 
-RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /root/.bashrc
+RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /etc/.bashrc 
+RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /etc/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 
-RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-mavros ros-noetic-mavlink
+RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-mavros ros-noetic-mavlink ros-noetic-xacro
 
 
 # Automatically source the workspace when starting a bash session
-RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
-RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
-RUN /bin/bash -c 'source /root/.bashrc'
+RUN echo "source /opt/ros/noetic/setup.bash" >> /etc/.bashrc
+RUN echo "source ~/catkin_ws/devel/setup.bash" >> /etc/.bashrc
+RUN /bin/bash -c 'source /etc/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
@@ -100,6 +100,10 @@ COPY packages/flightmare_coverage src/flightmare_coverage
 # COPY packages/pid_control src/pid_control
 # COPY packages/safety_control src/safety_control
 COPY packages/torch_pf src/torch_pf
+
+# Fix launch file
+RUN rm src/flightmare/rotors_simulator/rotors_gazebo/launch/spawn_mav.launch
+COPY packages/spawn_mav.launch src/flightmare/rotors_simulator/rotors_gazebo/launch/spawn_mav.launch
 
 # RUN apt-get install ros-noetic-roscpp#
 
@@ -118,7 +122,7 @@ RUN apt-get update \
 # RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 RUN catkin build
-
+RUN /bin/bash -c 'source /etc/.bashrc'
 RUN echo "--- build complete ---"
 
 # Set the default command to run when the container starts
