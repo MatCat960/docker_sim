@@ -6,7 +6,7 @@ add_compile_options(-std=c++11)
 
 
 list(APPEND CMAKE_PREFIX_PATH "$HOME/osqp")
-
+list(APPEND CMAKE_PREFIX_PATH "$HOME/libtorch")
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
