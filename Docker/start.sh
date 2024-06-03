@@ -2,7 +2,7 @@
 
 # Author: مهدي بلال
 
-docker run -it --rm \
+docker run -it \
   --privileged \
   --shm-size=2g \
   --pid=host \
@@ -13,4 +13,4 @@ docker run -it --rm \
   --env DISPLAY=${DISPLAY} \
   -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
   --name sim_docker \
-  sim_docker /bin/bash
+  8d78ee302367 /bin/bash

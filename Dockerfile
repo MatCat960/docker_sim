@@ -25,6 +25,14 @@ RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ss
 
 RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
+# Configure git
+RUN mkdir /root/.ssh/
+COPY id_rsa /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
+RUN chown -R root:root /root/.ssh
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+
 
 # Install catkin tools
 RUN apt-get update && apt-get install -y python3-catkin-tools tmux libtf2-ros-dev libsfml-dev\
@@ -43,6 +51,17 @@ RUN cd $HOME/osqp && mkdir build && cd build && cmake -G "Unix Makefiles" .. && 
 # Install osqp-eigen
 RUN cd $HOME && git clone https://github.com/robotology/osqp-eigen.git
 RUN cd $HOME/osqp-eigen && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/osqp-eigen ../ && make && make install
+
+# Install vs-code
+RUN apt-get install -y wget gpg
+RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+RUN install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+RUN echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+RUN rm -f packages.microsoft.gpg
+
+RUN apt install -y apt-transport-https
+RUN apt update
+RUN apt install -y code
 
 # RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
@@ -74,20 +93,24 @@ RUN cd src/flightmare/ ; git clone https://github.com/ethz-asl/rotors_simulator.
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_common.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_io.git
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
-RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /etc/.bashrc 
-RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /etc/.bashrc
+# RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /etc/.bashrc 
+# RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /etc/.bashrc
+ENV FLIGHTMARE_PATH=%HOME/catkin_ws/src/flightmare
 # RUN /bin/bash -c 'source /root/.bashrc'
 
 RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-mavros ros-noetic-mavlink ros-noetic-xacro
 
 
 # Automatically source the workspace when starting a bash session
-RUN echo "source /opt/ros/noetic/setup.bash" >> /etc/.bashrc
-RUN echo "source ~/catkin_ws/devel/setup.bash" >> /etc/.bashrc
-RUN /bin/bash -c 'source /etc/.bashrc'
+RUN echo "source /opt/ros/noetic/setup.bash" >> $HOME/.bashrc
+RUN echo "source $HOME/catkin_ws/devel/setup.bash" >> $HOME/.bashrc
+RUN /bin/bash -c 'source $HOME/.bashrc'
 COPY packages/fow_control src/fow_control
 COPY packages/pid_control src/pid_control
 COPY packages/safety_control src/safety_control
+RUN cd src/flightmare/ ; git clone git@github.com:ARSControl/gaussian_mixture_model.git
+RUN cd src/flightmare/ ; git clone -b ros1-noetic git@github.com:MatCat960/gmm_msgs.git
+RUN cd src/flightmare/ ; git clone -b ros1-noetic git@github.com:MatCat960/gmm_coverage.git
 RUN catkin build
 RUN echo "--- first build of libraries completed ---"
 
@@ -99,7 +122,11 @@ COPY packages/flightmare_coverage src/flightmare_coverage
 # COPY packages/fow_control src/fow_control
 # COPY packages/pid_control src/pid_control
 # COPY packages/safety_control src/safety_control
-COPY packages/torch_pf src/torch_pf
+# COPY packages/torch_pf src/torch_pf
+
+# Clone ROS pkgs
+
+RUN cd src/flightmare/ ; git clone git@github.com:MatCat960/formation_control.git
 
 # Fix launch file
 RUN rm src/flightmare/rotors_simulator/rotors_gazebo/launch/spawn_mav.launch
@@ -122,7 +149,7 @@ RUN apt-get update \
 # RUN echo "source /catkin_ws/devel/setup.bash" >> /root/.bashrc
 # RUN /bin/bash -c 'source /root/.bashrc'
 RUN catkin build
-RUN /bin/bash -c 'source /etc/.bashrc'
+RUN /bin/bash -c 'source $HOME/.bashrc'
 RUN echo "--- build complete ---"
 
 # Set the default command to run when the container starts
