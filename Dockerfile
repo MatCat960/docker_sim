@@ -1,5 +1,5 @@
 # Use the official ROS "humble-desktop-full" image
-FROM ros:noetic
+FROM osrf/ros:noetic-desktop-full
 
 ARG USERNAME=user
 ARG DEBIAN_FRONTEND=noninteractive
@@ -58,6 +58,7 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
 RUN install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 RUN echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 RUN rm -f packages.microsoft.gpg
+RUN echo 'alias vscode="code --user-data-dir --no-sandbox"' >> $HOME/.bashrc
 
 RUN apt install -y apt-transport-https
 RUN apt update
@@ -70,9 +71,6 @@ WORKDIR $HOME/catkin_ws
 RUN mkdir src
 RUN catkin config --extend /opt/ros/noetic && catkin build --no-status
 
-# Get current directory
-RUN echo $PWD
-
 # Install flightmare
 RUN apt-get update ; apt-get install -y --no-install-recommends \
    build-essential \
@@ -81,6 +79,8 @@ RUN apt-get update ; apt-get install -y --no-install-recommends \
    libopencv-dev 
 RUN apt-get install -y gazebo11
 RUN apt-get install -y libgoogle-glog-dev protobuf-compiler ros-noetic-octomap-msgs ros-noetic-octomap-ros ros-noetic-joy python3-vcstool
+# Install turtlebot3
+RUN apt install -y ros-noetic-dynamixel-sdk ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3
 RUN pip install catkin-tools
 # RUN mkdir -p ~/workspace/src
 # RUN cd ~/workspace/ ; catkin config --init --mkdirs --extend /opt/ros/noetic --merge-devel --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -95,7 +95,7 @@ RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_single_board_i
 RUN cd src/flightmare/ ; git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git
 # RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> /etc/.bashrc 
 # RUN echo "export OsqpEigen_DIR=/home/user/osqp-eigen" >> /etc/.bashrc
-ENV FLIGHTMARE_PATH=%HOME/catkin_ws/src/flightmare
+ENV FLIGHTMARE_PATH=$HOME/catkin_ws/src/flightmare
 # RUN /bin/bash -c 'source /root/.bashrc'
 
 RUN apt-get install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-mavros ros-noetic-mavlink ros-noetic-xacro
