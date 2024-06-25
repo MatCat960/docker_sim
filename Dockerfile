@@ -64,6 +64,8 @@ RUN apt install -y apt-transport-https
 RUN apt update
 RUN apt install -y code
 
+RUN pip install -U scikit-learn
+
 # RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
 # Get packages for building
