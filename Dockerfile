@@ -65,6 +65,9 @@ RUN apt update
 RUN apt install -y code
 
 RUN pip install -U scikit-learn
+RUN pip install shapely
+RUN pip install tqdm
+RUN pip install pyvoro
 
 # RUN echo "export OsqpEigen_DIR=$HOME/osqp-eigen" > /etc/bash.bashrc
 
